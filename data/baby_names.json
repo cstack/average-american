@@ -1,0 +1,2027 @@
+{
+  "1880": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1880,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9655,
+        "Female": 7065
+      }
+    }
+  },
+  "1881": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1881,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8769,
+        "Female": 6919
+      }
+    }
+  },
+  "1882": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1882,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9557,
+        "Female": 8148
+      }
+    }
+  },
+  "1883": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1883,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8894,
+        "Female": 8012
+      }
+    }
+  },
+  "1884": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1884,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9388,
+        "Female": 9217
+      }
+    }
+  },
+  "1885": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1885,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8756,
+        "Female": 9128
+      }
+    }
+  },
+  "1886": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1886,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9026,
+        "Female": 9890
+      }
+    }
+  },
+  "1887": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1887,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8110,
+        "Female": 9888
+      }
+    }
+  },
+  "1888": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1888,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9248,
+        "Female": 11754
+      }
+    }
+  },
+  "1889": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1889,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8548,
+        "Female": 11648
+      }
+    }
+  },
+  "1890": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1890,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8502,
+        "Female": 12078
+      }
+    }
+  },
+  "1891": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1891,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 7681,
+        "Female": 11703
+      }
+    }
+  },
+  "1892": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1892,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9039,
+        "Female": 13173
+      }
+    }
+  },
+  "1893": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1893,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8049,
+        "Female": 12784
+      }
+    }
+  },
+  "1894": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1894,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8238,
+        "Female": 13151
+      }
+    }
+  },
+  "1895": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1895,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8321,
+        "Female": 13446
+      }
+    }
+  },
+  "1896": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1896,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8139,
+        "Female": 13811
+      }
+    }
+  },
+  "1897": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1897,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 7550,
+        "Female": 13413
+      }
+    }
+  },
+  "1898": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1898,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8159,
+        "Female": 14406
+      }
+    }
+  },
+  "1899": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1899,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 6990,
+        "Female": 13172
+      }
+    }
+  },
+  "1900": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1900,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9829,
+        "Female": 16707
+      }
+    }
+  },
+  "1901": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1901,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 6899,
+        "Female": 13136
+      }
+    }
+  },
+  "1902": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1902,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 7907,
+        "Female": 14486
+      }
+    }
+  },
+  "1903": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1903,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 7608,
+        "Female": 14275
+      }
+    }
+  },
+  "1904": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1904,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8108,
+        "Female": 14962
+      }
+    }
+  },
+  "1905": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1905,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8060,
+        "Female": 16067
+      }
+    }
+  },
+  "1906": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1906,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8264,
+        "Female": 16370
+      }
+    }
+  },
+  "1907": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1907,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 8983,
+        "Female": 17580
+      }
+    }
+  },
+  "1908": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1908,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9342,
+        "Female": 18666
+      }
+    }
+  },
+  "1909": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1909,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 9591,
+        "Female": 19259
+      }
+    }
+  },
+  "1910": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1910,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 11450,
+        "Female": 22848
+      }
+    }
+  },
+  "1911": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1911,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 13445,
+        "Female": 24390
+      }
+    }
+  },
+  "1912": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1912,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 24587,
+        "Female": 32303
+      }
+    }
+  },
+  "1913": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1913,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 29329,
+        "Female": 36641
+      }
+    }
+  },
+  "1914": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1914,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 37948,
+        "Female": 45344
+      }
+    }
+  },
+  "1915": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1915,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 47577,
+        "Female": 58187
+      }
+    }
+  },
+  "1916": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1916,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 50046,
+        "Female": 61437
+      }
+    }
+  },
+  "1917": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1917,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 51851,
+        "Female": 64280
+      }
+    }
+  },
+  "1918": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1918,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 56559,
+        "Female": 67370
+      }
+    }
+  },
+  "1919": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1919,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 53532,
+        "Female": 65840
+      }
+    }
+  },
+  "1920": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1920,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 56910,
+        "Female": 70976
+      }
+    }
+  },
+  "1921": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1921,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 58228,
+        "Female": 73985
+      }
+    }
+  },
+  "1922": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1922,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 57278,
+        "Female": 72171
+      }
+    }
+  },
+  "1923": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1923,
+      "most_popular": {
+        "Male": "John",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 57471,
+        "Female": 71634
+      }
+    }
+  },
+  "1924": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1924,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 60792,
+        "Female": 73527
+      }
+    }
+  },
+  "1925": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1925,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 60903,
+        "Female": 70601
+      }
+    }
+  },
+  "1926": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1926,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 61118,
+        "Female": 67823
+      }
+    }
+  },
+  "1927": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1927,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 61664,
+        "Female": 70632
+      }
+    }
+  },
+  "1928": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1928,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 60680,
+        "Female": 66866
+      }
+    }
+  },
+  "1929": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1929,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 59802,
+        "Female": 63508
+      }
+    }
+  },
+  "1930": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1930,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 62143,
+        "Female": 64134
+      }
+    }
+  },
+  "1931": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1931,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 60497,
+        "Female": 60293
+      }
+    }
+  },
+  "1932": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1932,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 59248,
+        "Female": 59871
+      }
+    }
+  },
+  "1933": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1933,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 54205,
+        "Female": 55493
+      }
+    }
+  },
+  "1934": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1934,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 55826,
+        "Female": 56918
+      }
+    }
+  },
+  "1935": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1935,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 56514,
+        "Female": 55067
+      }
+    }
+  },
+  "1936": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1936,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 58486,
+        "Female": 54363
+      }
+    }
+  },
+  "1937": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1937,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 61821,
+        "Female": 55640
+      }
+    }
+  },
+  "1938": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1938,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 62262,
+        "Female": 56211
+      }
+    }
+  },
+  "1939": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1939,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 59640,
+        "Female": 54900
+      }
+    }
+  },
+  "1940": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1940,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 62472,
+        "Female": 56195
+      }
+    }
+  },
+  "1941": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1941,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 66719,
+        "Female": 58031
+      }
+    }
+  },
+  "1942": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1942,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 77173,
+        "Female": 63238
+      }
+    }
+  },
+  "1943": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1943,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 80248,
+        "Female": 66171
+      }
+    }
+  },
+  "1944": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1944,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 76944,
+        "Female": 62463
+      }
+    }
+  },
+  "1945": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1945,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 74450,
+        "Female": 59284
+      }
+    }
+  },
+  "1946": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1946,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 87425,
+        "Female": 67463
+      }
+    }
+  },
+  "1947": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1947,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 94755,
+        "Female": 99680
+      }
+    }
+  },
+  "1948": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1948,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 88596,
+        "Female": 96205
+      }
+    }
+  },
+  "1949": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1949,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 86856,
+        "Female": 91010
+      }
+    }
+  },
+  "1950": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1950,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 86221,
+        "Female": 80431
+      }
+    }
+  },
+  "1951": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1951,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 87175,
+        "Female": 73933
+      }
+    }
+  },
+  "1952": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1952,
+      "most_popular": {
+        "Male": "James",
+        "Female": "Linda"
+      },
+      "counts": {
+        "Male": 87083,
+        "Female": 67096
+      }
+    }
+  },
+  "1953": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1953,
+      "most_popular": {
+        "Male": "Robert",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 86135,
+        "Female": 64337
+      }
+    }
+  },
+  "1954": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1954,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 88485,
+        "Female": 68001
+      }
+    }
+  },
+  "1955": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1955,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 88283,
+        "Female": 63160
+      }
+    }
+  },
+  "1956": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1956,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 90633,
+        "Female": 61751
+      }
+    }
+  },
+  "1957": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1957,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 92709,
+        "Female": 61096
+      }
+    }
+  },
+  "1958": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1958,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 90519,
+        "Female": 55850
+      }
+    }
+  },
+  "1959": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1959,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 85272,
+        "Female": 54473
+      }
+    }
+  },
+  "1960": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1960,
+      "most_popular": {
+        "Male": "David",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 85931,
+        "Female": 51479
+      }
+    }
+  },
+  "1961": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1961,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Mary"
+      },
+      "counts": {
+        "Male": 86916,
+        "Female": 47667
+      }
+    }
+  },
+  "1962": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1962,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 85046,
+        "Female": 46083
+      }
+    }
+  },
+  "1963": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1963,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 83795,
+        "Female": 56039
+      }
+    }
+  },
+  "1964": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1964,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 82674,
+        "Female": 54275
+      }
+    }
+  },
+  "1965": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1965,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 81048,
+        "Female": 60268
+      }
+    }
+  },
+  "1966": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1966,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 80002,
+        "Female": 56913
+      }
+    }
+  },
+  "1967": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1967,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 82454,
+        "Female": 52430
+      }
+    }
+  },
+  "1968": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1968,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 82019,
+        "Female": 49532
+      }
+    }
+  },
+  "1969": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1969,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Lisa"
+      },
+      "counts": {
+        "Male": 85227,
+        "Female": 45032
+      }
+    }
+  },
+  "1970": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1970,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 85321,
+        "Female": 46160
+      }
+    }
+  },
+  "1971": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1971,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 77611,
+        "Female": 56786
+      }
+    }
+  },
+  "1972": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1972,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 71426,
+        "Female": 63606
+      }
+    }
+  },
+  "1973": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1973,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67864,
+        "Female": 62454
+      }
+    }
+  },
+  "1974": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1974,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67577,
+        "Female": 63111
+      }
+    }
+  },
+  "1975": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1975,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 68457,
+        "Female": 58185
+      }
+    }
+  },
+  "1976": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1976,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 66971,
+        "Female": 59479
+      }
+    }
+  },
+  "1977": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1977,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67611,
+        "Female": 58960
+      }
+    }
+  },
+  "1978": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1978,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67153,
+        "Female": 56311
+      }
+    }
+  },
+  "1979": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1979,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67728,
+        "Female": 56715
+      }
+    }
+  },
+  "1980": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1980,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 68666,
+        "Female": 58385
+      }
+    }
+  },
+  "1981": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1981,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 68752,
+        "Female": 57041
+      }
+    }
+  },
+  "1982": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1982,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 68204,
+        "Female": 57109
+      }
+    }
+  },
+  "1983": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1983,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67986,
+        "Female": 54336
+      }
+    }
+  },
+  "1984": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1984,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jennifer"
+      },
+      "counts": {
+        "Male": 67722,
+        "Female": 50559
+      }
+    }
+  },
+  "1985": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1985,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 64887,
+        "Female": 48346
+      }
+    }
+  },
+  "1986": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1986,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 64184,
+        "Female": 52667
+      }
+    }
+  },
+  "1987": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1987,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 63631,
+        "Female": 55985
+      }
+    }
+  },
+  "1988": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1988,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 64116,
+        "Female": 51530
+      }
+    }
+  },
+  "1989": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1989,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 65374,
+        "Female": 47882
+      }
+    }
+  },
+  "1990": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1990,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 65274,
+        "Female": 46466
+      }
+    }
+  },
+  "1991": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1991,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Ashley"
+      },
+      "counts": {
+        "Male": 60781,
+        "Female": 43482
+      }
+    }
+  },
+  "1992": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1992,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Ashley"
+      },
+      "counts": {
+        "Male": 54377,
+        "Female": 38453
+      }
+    }
+  },
+  "1993": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1993,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 49553,
+        "Female": 34984
+      }
+    }
+  },
+  "1994": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1994,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 44465,
+        "Female": 32116
+      }
+    }
+  },
+  "1995": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1995,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Jessica"
+      },
+      "counts": {
+        "Male": 41403,
+        "Female": 27938
+      }
+    }
+  },
+  "1996": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1996,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 38364,
+        "Female": 25149
+      }
+    }
+  },
+  "1997": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1997,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 37543,
+        "Female": 25731
+      }
+    }
+  },
+  "1998": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1998,
+      "most_popular": {
+        "Male": "Michael",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 36613,
+        "Female": 26179
+      }
+    }
+  },
+  "1999": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 1999,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 35344,
+        "Female": 26537
+      }
+    }
+  },
+  "2000": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2000,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 34465,
+        "Female": 25952
+      }
+    }
+  },
+  "2001": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2001,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 32527,
+        "Female": 25052
+      }
+    }
+  },
+  "2002": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2002,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 30556,
+        "Female": 24457
+      }
+    }
+  },
+  "2003": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2003,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 29615,
+        "Female": 25685
+      }
+    }
+  },
+  "2004": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2004,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 27871,
+        "Female": 25025
+      }
+    }
+  },
+  "2005": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2005,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 25814,
+        "Female": 23928
+      }
+    }
+  },
+  "2006": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2006,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 24830,
+        "Female": 21389
+      }
+    }
+  },
+  "2007": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2007,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emily"
+      },
+      "counts": {
+        "Male": 24252,
+        "Female": 19345
+      }
+    }
+  },
+  "2008": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2008,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Emma"
+      },
+      "counts": {
+        "Male": 22568,
+        "Female": 18799
+      }
+    }
+  },
+  "2009": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2009,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Isabella"
+      },
+      "counts": {
+        "Male": 21144,
+        "Female": 22278
+      }
+    }
+  },
+  "2010": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2010,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Isabella"
+      },
+      "counts": {
+        "Male": 22082,
+        "Female": 22883
+      }
+    }
+  },
+  "2011": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2011,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Sophia"
+      },
+      "counts": {
+        "Male": 20331,
+        "Female": 21816
+      }
+    }
+  },
+  "2012": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2012,
+      "most_popular": {
+        "Male": "Jacob",
+        "Female": "Sophia"
+      },
+      "counts": {
+        "Male": 19030,
+        "Female": 22267
+      }
+    }
+  },
+  "2013": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2013,
+      "most_popular": {
+        "Male": "Noah",
+        "Female": "Sophia"
+      },
+      "counts": {
+        "Male": 18179,
+        "Female": 21147
+      }
+    }
+  },
+  "2014": {
+    "baby_name": {
+      "source": "Social Security Administration (via Kaggle)",
+      "source_url": "https://www.kaggle.com/datasets/kaggle/us-baby-names",
+      "year": 2014,
+      "most_popular": {
+        "Male": "Noah",
+        "Female": "Emma"
+      },
+      "counts": {
+        "Male": 19144,
+        "Female": 20799
+      }
+    }
+  }
+}
