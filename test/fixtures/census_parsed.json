@@ -1,0 +1,41 @@
+{
+  "2020": {
+    "gender": {
+      "source": "US Census",
+      "year": 2020,
+      "distribution": {
+        "Male": 48.9,
+        "Female": 51.1
+      }
+    },
+    "age": {
+      "median": 38.5
+    }
+  },
+  "2021": {
+    "gender": {
+      "source": "US Census",
+      "year": 2021,
+      "distribution": {
+        "Male": 48.9,
+        "Female": 51.1
+      }
+    },
+    "age": {
+      "median": 38.8
+    }
+  },
+  "2023": {
+    "gender": {
+      "source": "US Census",
+      "year": 2023,
+      "distribution": {
+        "Male": 49.0,
+        "Female": 51.0
+      }
+    },
+    "age": {
+      "median": 39.0
+    }
+  }
+}

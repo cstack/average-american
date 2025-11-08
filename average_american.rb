@@ -34,26 +34,22 @@ module DataLoader
   PARSED_DATA_FILE = 'data/census_parsed.json'
 
   def self.load_demographics(year: nil)
-    # Try to load from parsed census data first
-    if File.exist?(PARSED_DATA_FILE)
-      all_data = JSON.parse(File.read(PARSED_DATA_FILE))
-      return filter_by_year(all_data, year) if year
+    unless File.exist?(PARSED_DATA_FILE)
+      raise <<~ERROR
+        No Census data found. Please download and parse Census data first by running:
 
-      # Return most recent year if no year specified
-      latest_year = all_data.keys.map(&:to_i).max.to_s
-      return all_data[latest_year]
+            ruby average_american.rb --fetch
+
+        This will download the latest data from census.gov and parse it for you.
+      ERROR
     end
 
-    # Fall back to static data file
-    load_static_demographics
-  end
+    all_data = JSON.parse(File.read(PARSED_DATA_FILE))
+    return filter_by_year(all_data, year) if year
 
-  def self.load_static_demographics(file_path = 'data/demographics.json')
-    JSON.parse(File.read(file_path))
-  rescue Errno::ENOENT
-    raise "Demographics file not found: #{file_path}"
-  rescue JSON::ParserError
-    raise "Invalid JSON in demographics file: #{file_path}"
+    # Return most recent year if no year specified
+    latest_year = all_data.keys.map(&:to_i).max.to_s
+    all_data[latest_year]
   end
 
   def self.filter_by_year(all_data, year)

@@ -22,22 +22,24 @@ bundle install
 
 ## Usage
 
-### Fetch Census Data
+### First Time Setup: Fetch Census Data
 
-First, download and parse the latest Census data:
+**Required before first use:** Download and parse the latest Census data:
 
 ```bash
 ruby average_american.rb --fetch
 ```
 
 This will:
-- Download the Census Excel file from census.gov
+- Download the Census Excel file from census.gov (one-time download, cached locally)
 - Parse demographic data for years 2020-2024
 - Save the parsed data to `data/census_parsed.json`
 
+If you try to run the script without fetching first, you'll see a helpful error message with instructions.
+
 ### Show Average American Profile
 
-Show the average American for the latest available year:
+After fetching data, show the average American for the latest available year:
 
 ```bash
 ruby average_american.rb
@@ -86,12 +88,13 @@ ruby average_american.rb --help
 average-american/
 ├── average_american.rb          # Main script with all modules
 ├── test/
-│   └── test_average_american.rb # Test suite
+│   ├── test_average_american.rb # Test suite
+│   └── fixtures/
+│       └── census_parsed.json   # Test fixture data
 ├── data/
-│   ├── demographics.json        # Static fallback data
-│   ├── census_parsed.json       # Parsed Census data (after --fetch)
+│   ├── census_parsed.json       # Parsed Census data (created by --fetch)
 │   └── cache/
-│       └── census_age_sex.xlsx  # Downloaded Census file
+│       └── census_age_sex.xlsx  # Downloaded Census file (cached)
 ├── Gemfile                      # Dependencies
 ├── .rubocop.yml                 # Code style configuration
 └── README.md                    # This file
@@ -106,6 +109,8 @@ Run the test suite:
 ```bash
 ruby test/test_average_american.rb
 ```
+
+Tests use fixture data from `test/fixtures/` and don't require fetching real Census data.
 
 All tests should pass before committing changes.
 
