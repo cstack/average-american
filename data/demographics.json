@@ -1,0 +1,26 @@
+{
+  "gender": {
+    "source": "US Census",
+    "year": 2023,
+    "distribution": {
+      "Female": 51.1,
+      "Male": 48.9
+    }
+  },
+  "age": {
+    "source": "US Census",
+    "year": 2023,
+    "median": 38.9,
+    "distribution": [
+      {"range": "0-9", "percentage": 12.1},
+      {"range": "10-19", "percentage": 12.8},
+      {"range": "20-29", "percentage": 13.5},
+      {"range": "30-39", "percentage": 13.8},
+      {"range": "40-49", "percentage": 12.6},
+      {"range": "50-59", "percentage": 13.0},
+      {"range": "60-69", "percentage": 11.7},
+      {"range": "70-79", "percentage": 7.0},
+      {"range": "80+", "percentage": 3.5}
+    ]
+  }
+}
