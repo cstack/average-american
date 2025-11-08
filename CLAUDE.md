@@ -1,1 +1,2 @@
 - Keep README.md up-to-date as the interface for the tool changes
+- After each change, make sure behavior is tested, tests pass, and linting passes.

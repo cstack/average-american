@@ -169,7 +169,7 @@ class TestAveragePerson < Minitest::Test
   def test_to_s_formats_output_without_name
     person = AveragePerson.new(@data)
     output = person.to_s
-    assert_match(/The Average American:/, output)
+    assert_match(/The Average American Woman:/, output)
     assert_match(/Gender: Female/, output)
     assert_match(/Age: 38.9 years old/, output)
     refute_match(/Name:/, output)
@@ -206,5 +206,23 @@ class TestAveragePerson < Minitest::Test
   def test_no_name_when_baby_names_empty
     person = AveragePerson.new(@data, baby_names: {}, current_year: 2024)
     assert_nil person.name
+  end
+
+  def test_gender_override_male
+    person = AveragePerson.new(@data, baby_names: @baby_names, current_year: 2024, gender: 'Male')
+    assert_equal 'Male', person.gender
+    assert_equal 'Michael', person.name
+    assert_match(/The Average American Man:/, person.to_s)
+  end
+
+  def test_gender_override_female
+    male_data = {
+      'gender' => { 'distribution' => { 'Male' => 55.0, 'Female' => 45.0 } },
+      'age' => { 'median' => 38.9 }
+    }
+    person = AveragePerson.new(male_data, baby_names: @baby_names, current_year: 2024, gender: 'Female')
+    assert_equal 'Female', person.gender
+    assert_equal 'Jessica', person.name
+    assert_match(/The Average American Woman:/, person.to_s)
   end
 end

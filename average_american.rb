@@ -174,15 +174,20 @@ end
 class AveragePerson
   attr_reader :gender, :age, :name
 
-  def initialize(data, baby_names: {}, current_year: Time.now.year)
-    @gender = Stats.mode(data['gender']['distribution'])
+  def initialize(data, baby_names: {}, current_year: Time.now.year, gender: nil)
+    @gender = gender || Stats.mode(data['gender']['distribution'])
     @age = data['age']['median']
     @current_year = current_year
     @name = determine_name(baby_names)
   end
 
   def to_s
-    output = "The Average American:\n"
+    gender_title = case @gender
+                   when 'Male' then ' Man'
+                   when 'Female' then ' Woman'
+                   else ''
+                   end
+    output = "The Average American#{gender_title}:\n"
     output += "- Name: #{@name}\n" if @name
     output += "- Gender: #{@gender}\n"
     output += "- Age: #{@age.round(1)} years old"
@@ -206,12 +211,14 @@ end
 # Command-line interface
 module CLI
   def self.parse_args(args)
-    options = { year: nil, fetch: false }
+    options = { year: nil, fetch: false, gender: nil }
 
     args.each do |arg|
       case arg
       when /^--year=(\d+)$/
         options[:year] = ::Regexp.last_match(1).to_i
+      when /^--gender=(male|female)$/i
+        options[:gender] = ::Regexp.last_match(1).capitalize
       when '--fetch'
         options[:fetch] = true
       when '--help', '-h'
@@ -228,14 +235,17 @@ module CLI
       Usage: ruby average_american.rb [OPTIONS]
 
       Options:
-        --year=YYYY    Show average American for specific year (2020-2024)
-        --fetch        Download and parse latest Census data
-        --help, -h     Show this help message
+        --year=YYYY           Show average American for specific year (2020-2024)
+        --gender=male|female  Show average American of specific gender
+        --fetch               Download and parse latest Census data
+        --help, -h            Show this help message
 
       Examples:
-        ruby average_american.rb               # Show last 5 years
-        ruby average_american.rb --year=2023   # Show specific year
-        ruby average_american.rb --fetch       # Download Census data
+        ruby average_american.rb                          # Show both genders for latest year
+        ruby average_american.rb --year=2023              # Show both genders for specific year
+        ruby average_american.rb --gender=male            # Show average American man (latest year)
+        ruby average_american.rb --year=2023 --gender=female  # Combine options
+        ruby average_american.rb --fetch                  # Download Census data
     HELP
   end
 
@@ -267,13 +277,26 @@ if __FILE__ == $PROGRAM_NAME
     baby_names = DataLoader.load_baby_names
 
     if options[:year]
-      # Show single year when specified
+      # Show specified year
       data = DataLoader.load_demographics(year: options[:year])
-      person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year])
-      puts person
+
+      if options[:gender]
+        # Show only the specified gender
+        person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: options[:gender])
+        puts person
+      else
+        # Show both genders
+        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: 'Male')
+        puts male_person
+        puts "(Year: #{options[:year]})"
+        puts "\n#{'-' * 50}\n\n"
+
+        female_person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: 'Female')
+        puts female_person
+      end
       puts "(Year: #{options[:year]})"
     else
-      # Show last 5 years by default
+      # Show both male and female for most recent year by default
       unless File.exist?(DataLoader::PARSED_DATA_FILE)
         raise <<~ERROR
           No Census data found. Please download and parse Census data first by running:
@@ -285,15 +308,24 @@ if __FILE__ == $PROGRAM_NAME
       end
 
       all_data = JSON.parse(File.read(DataLoader::PARSED_DATA_FILE))
-      years = all_data.keys.map(&:to_i).sort.reverse.take(5)
+      latest_year = all_data.keys.map(&:to_i).max
+      data = all_data[latest_year.to_s]
 
-      years.each_with_index do |year, index|
-        data = all_data[year.to_s]
-        person = AveragePerson.new(data, baby_names: baby_names, current_year: year)
+      if options[:gender]
+        # Show only the specified gender
+        person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: options[:gender])
         puts person
-        puts "(Year: #{year})"
-        puts "\n#{'-' * 50}\n\n" unless index == years.size - 1
+      else
+        # Show both male and female
+        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Male')
+        puts male_person
+        puts "(Year: #{latest_year})"
+        puts "\n#{'-' * 50}\n\n"
+
+        female_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Female')
+        puts female_person
       end
+      puts "(Year: #{latest_year})"
     end
   rescue StandardError => e
     warn "Error: #{e.message}"

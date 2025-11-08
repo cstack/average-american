@@ -7,8 +7,9 @@ A Ruby command-line tool that constructs a profile of the "average American" bas
 - Fetches and parses real demographic data from the U.S. Census Bureau
 - Calculates median age and gender distribution (mode)
 - Determines most popular baby name based on gender and implied birth year
-- Shows profiles for the last 5 years by default
+- Shows profiles for both male and female for the most recent year by default
 - Supports filtering by specific year (2020-2024)
+- Supports filtering by gender (male or female)
 - Caches data locally for offline use
 - Fully tested with minitest
 - Linted with rubocop
@@ -51,7 +52,7 @@ This will create `data/baby_names.json` with the most popular baby names by year
 
 ### Show Average American Profiles
 
-After fetching data, show profiles for the last 5 years:
+After fetching data, show profiles for both genders for the most recent year:
 
 ```bash
 ruby average_american.rb
@@ -59,26 +60,24 @@ ruby average_american.rb
 
 Output:
 ```
-The Average American:
-- Name: Jessica
-- Gender: Female
+The Average American Man:
+- Name: Michael
+- Gender: Male
 - Age: 39.1 years old
 (Year: 2024)
 
 --------------------------------------------------
 
-The Average American:
-- Name: Jennifer
+The Average American Woman:
+- Name: Jessica
 - Gender: Female
-- Age: 39.0 years old
-(Year: 2023)
-
-[... 3 more years ...]
+- Age: 39.1 years old
+(Year: 2024)
 ```
 
 ### Show a Specific Year
 
-Show the average American for a specific year:
+Show both genders for a specific year:
 
 ```bash
 ruby average_american.rb --year=2020
@@ -86,11 +85,51 @@ ruby average_american.rb --year=2020
 
 Output:
 ```
-The Average American:
+The Average American Man:
+- Name: Michael
+- Gender: Male
+- Age: 38.5 years old
+(Year: 2020)
+
+--------------------------------------------------
+
+The Average American Woman:
 - Name: Jennifer
 - Gender: Female
 - Age: 38.5 years old
 (Year: 2020)
+```
+
+### Filter by Gender
+
+Show only a specific gender for the most recent year:
+
+```bash
+ruby average_american.rb --gender=male
+```
+
+Output:
+```
+The Average American Man:
+- Name: Michael
+- Gender: Male
+- Age: 39.1 years old
+(Year: 2024)
+```
+
+You can also combine gender with year to show only that gender for a specific year:
+
+```bash
+ruby average_american.rb --year=2023 --gender=female
+```
+
+Output:
+```
+The Average American Woman:
+- Name: Jennifer
+- Gender: Female
+- Age: 39.0 years old
+(Year: 2023)
 ```
 
 ### Help
