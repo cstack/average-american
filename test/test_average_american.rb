@@ -7,6 +7,7 @@ require_relative '../average_american'
 # Test helper methods
 module TestHelpers
   FIXTURE_FILE = 'test/fixtures/census_parsed.json'
+  BABY_NAMES_FIXTURE_FILE = 'test/fixtures/baby_names.json'
 
   def with_fixture_data
     # Temporarily copy fixture to expected location
@@ -16,6 +17,16 @@ module TestHelpers
   ensure
     # Clean up
     FileUtils.rm_f(DataLoader::PARSED_DATA_FILE)
+  end
+
+  def with_baby_names_fixture
+    # Temporarily copy baby names fixture
+    FileUtils.mkdir_p('data')
+    FileUtils.cp(BABY_NAMES_FIXTURE_FILE, DataLoader::BABY_NAMES_FILE)
+    yield
+  ensure
+    # Clean up
+    FileUtils.rm_f(DataLoader::BABY_NAMES_FILE)
   end
 
   def without_census_data
@@ -135,6 +146,14 @@ class TestAveragePerson < Minitest::Test
         'median' => 38.9
       }
     }
+
+    @baby_names = {
+      '1985' => {
+        'baby_name' => {
+          'most_popular' => { 'Male' => 'Michael', 'Female' => 'Jessica' }
+        }
+      }
+    }
   end
 
   def test_gender_is_most_common
@@ -147,11 +166,45 @@ class TestAveragePerson < Minitest::Test
     assert_equal 38.9, person.age
   end
 
-  def test_to_s_formats_output
+  def test_to_s_formats_output_without_name
     person = AveragePerson.new(@data)
     output = person.to_s
     assert_match(/The Average American:/, output)
     assert_match(/Gender: Female/, output)
     assert_match(/Age: 38.9 years old/, output)
+    refute_match(/Name:/, output)
+  end
+
+  def test_name_selected_based_on_birth_year_and_gender
+    # Age 38.9 in 2024 = born in ~1985
+    person = AveragePerson.new(@data, baby_names: @baby_names, current_year: 2024)
+    assert_equal 'Jessica', person.name
+  end
+
+  def test_male_name_selected_for_male_gender
+    male_data = {
+      'gender' => { 'distribution' => { 'Male' => 55.0, 'Female' => 45.0 } },
+      'age' => { 'median' => 38.9 }
+    }
+    person = AveragePerson.new(male_data, baby_names: @baby_names, current_year: 2024)
+    assert_equal 'Michael', person.name
+  end
+
+  def test_to_s_includes_name_when_available
+    person = AveragePerson.new(@data, baby_names: @baby_names, current_year: 2024)
+    output = person.to_s
+    assert_match(/Name: Jessica/, output)
+    assert_match(/Gender: Female/, output)
+    assert_match(/Age: 38.9 years old/, output)
+  end
+
+  def test_no_name_when_birth_year_not_in_data
+    person = AveragePerson.new(@data, baby_names: @baby_names, current_year: 2050)
+    assert_nil person.name
+  end
+
+  def test_no_name_when_baby_names_empty
+    person = AveragePerson.new(@data, baby_names: {}, current_year: 2024)
+    assert_nil person.name
   end
 end

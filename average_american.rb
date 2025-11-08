@@ -32,6 +32,7 @@ end
 # Data loader for demographics
 module DataLoader
   PARSED_DATA_FILE = 'data/census_parsed.json'
+  BABY_NAMES_FILE = 'data/baby_names.json'
 
   def self.load_demographics(year: nil)
     unless File.exist?(PARSED_DATA_FILE)
@@ -50,6 +51,12 @@ module DataLoader
     # Return most recent year if no year specified
     latest_year = all_data.keys.map(&:to_i).max.to_s
     all_data[latest_year]
+  end
+
+  def self.load_baby_names
+    return {} unless File.exist?(BABY_NAMES_FILE)
+
+    JSON.parse(File.read(BABY_NAMES_FILE))
   end
 
   def self.filter_by_year(all_data, year)
@@ -165,15 +172,34 @@ end
 
 # Represents the average American based on demographic data
 class AveragePerson
-  attr_reader :gender, :age
+  attr_reader :gender, :age, :name
 
-  def initialize(data)
+  def initialize(data, baby_names: {}, current_year: Time.now.year)
     @gender = Stats.mode(data['gender']['distribution'])
     @age = data['age']['median']
+    @current_year = current_year
+    @name = determine_name(baby_names)
   end
 
   def to_s
-    "The Average American:\n- Gender: #{@gender}\n- Age: #{@age.round(1)} years old"
+    output = "The Average American:\n"
+    output += "- Name: #{@name}\n" if @name
+    output += "- Gender: #{@gender}\n"
+    output += "- Age: #{@age.round(1)} years old"
+    output
+  end
+
+  private
+
+  def determine_name(baby_names)
+    return nil if baby_names.empty? || @gender.nil? || @age.nil?
+
+    birth_year = (@current_year - @age).round
+    birth_year_data = baby_names[birth_year.to_s]
+
+    return nil unless birth_year_data&.dig('baby_name', 'most_popular')
+
+    birth_year_data['baby_name']['most_popular'][@gender]
   end
 end
 
@@ -239,7 +265,12 @@ if __FILE__ == $PROGRAM_NAME
     end
 
     data = DataLoader.load_demographics(year: options[:year])
-    person = AveragePerson.new(data)
+    baby_names = DataLoader.load_baby_names
+
+    # Determine current year for birth year calculation
+    current_year = options[:year] || (data['age']['year'] if data.dig('age', 'year')) || Time.now.year
+
+    person = AveragePerson.new(data, baby_names: baby_names, current_year: current_year)
     puts person
     puts "(Year: #{options[:year] || 'latest'})" if options[:year] || File.exist?(DataLoader::PARSED_DATA_FILE)
   rescue StandardError => e
