@@ -10,23 +10,45 @@ module TestHelpers
   BABY_NAMES_FIXTURE_FILE = 'test/fixtures/baby_names.json'
 
   def with_fixture_data
-    # Temporarily copy fixture to expected location
+    # Temporarily save existing production file if it exists
+    temp_file = nil
+    if File.exist?(DataLoader::PARSED_DATA_FILE)
+      temp_file = "#{DataLoader::PARSED_DATA_FILE}.backup"
+      FileUtils.cp(DataLoader::PARSED_DATA_FILE, temp_file)
+    end
+
+    # Copy fixture to expected location
     FileUtils.mkdir_p('data')
     FileUtils.cp(FIXTURE_FILE, DataLoader::PARSED_DATA_FILE)
     yield
   ensure
-    # Clean up
-    FileUtils.rm_f(DataLoader::PARSED_DATA_FILE)
+    # Restore original file or clean up fixture
+    if temp_file && File.exist?(temp_file)
+      FileUtils.mv(temp_file, DataLoader::PARSED_DATA_FILE)
+    elsif !temp_file
+      FileUtils.rm_f(DataLoader::PARSED_DATA_FILE)
+    end
   end
 
   def with_baby_names_fixture
-    # Temporarily copy baby names fixture
+    # Temporarily save existing production file if it exists
+    temp_file = nil
+    if File.exist?(DataLoader::BABY_NAMES_FILE)
+      temp_file = "#{DataLoader::BABY_NAMES_FILE}.backup"
+      FileUtils.cp(DataLoader::BABY_NAMES_FILE, temp_file)
+    end
+
+    # Copy fixture to expected location
     FileUtils.mkdir_p('data')
     FileUtils.cp(BABY_NAMES_FIXTURE_FILE, DataLoader::BABY_NAMES_FILE)
     yield
   ensure
-    # Clean up
-    FileUtils.rm_f(DataLoader::BABY_NAMES_FILE)
+    # Restore original file or clean up fixture
+    if temp_file && File.exist?(temp_file)
+      FileUtils.mv(temp_file, DataLoader::BABY_NAMES_FILE)
+    elsif !temp_file
+      FileUtils.rm_f(DataLoader::BABY_NAMES_FILE)
+    end
   end
 
   def without_census_data
