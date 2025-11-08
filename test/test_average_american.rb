@@ -54,9 +54,9 @@ class TestDataLoader < Minitest::Test
     assert_kind_of Numeric, data['age']['median']
   end
 
-  def test_load_demographics_file_not_found
+  def test_load_static_demographics_file_not_found
     error = assert_raises(RuntimeError) do
-      DataLoader.load_demographics('nonexistent.json')
+      DataLoader.load_static_demographics('nonexistent.json')
     end
     assert_match(/not found/, error.message)
   end
