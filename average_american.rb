@@ -233,9 +233,9 @@ module CLI
         --help, -h     Show this help message
 
       Examples:
-        ruby average_american.rb
-        ruby average_american.rb --year=2023
-        ruby average_american.rb --fetch
+        ruby average_american.rb               # Show last 5 years
+        ruby average_american.rb --year=2023   # Show specific year
+        ruby average_american.rb --fetch       # Download Census data
     HELP
   end
 
@@ -264,15 +264,37 @@ if __FILE__ == $PROGRAM_NAME
       exit 0
     end
 
-    data = DataLoader.load_demographics(year: options[:year])
     baby_names = DataLoader.load_baby_names
 
-    # Determine current year for birth year calculation
-    current_year = options[:year] || (data['age']['year'] if data.dig('age', 'year')) || Time.now.year
+    if options[:year]
+      # Show single year when specified
+      data = DataLoader.load_demographics(year: options[:year])
+      person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year])
+      puts person
+      puts "(Year: #{options[:year]})"
+    else
+      # Show last 5 years by default
+      unless File.exist?(DataLoader::PARSED_DATA_FILE)
+        raise <<~ERROR
+          No Census data found. Please download and parse Census data first by running:
 
-    person = AveragePerson.new(data, baby_names: baby_names, current_year: current_year)
-    puts person
-    puts "(Year: #{options[:year] || 'latest'})" if options[:year] || File.exist?(DataLoader::PARSED_DATA_FILE)
+              ruby average_american.rb --fetch
+
+          This will download the latest data from census.gov and parse it for you.
+        ERROR
+      end
+
+      all_data = JSON.parse(File.read(DataLoader::PARSED_DATA_FILE))
+      years = all_data.keys.map(&:to_i).sort.reverse.take(5)
+
+      years.each_with_index do |year, index|
+        data = all_data[year.to_s]
+        person = AveragePerson.new(data, baby_names: baby_names, current_year: year)
+        puts person
+        puts "(Year: #{year})"
+        puts "\n#{'-' * 50}\n\n" unless index == years.size - 1
+      end
+    end
   rescue StandardError => e
     warn "Error: #{e.message}"
     exit 1
