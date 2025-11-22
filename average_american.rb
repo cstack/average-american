@@ -268,9 +268,12 @@ module TableFormatter
 
   def self.print_header
     year_col = 'Year'.center(6)
-    avg_col = 'Average American'.center(32)
-    man_col = 'Average Man'.center(22)
-    woman_col = 'Average Woman'.center(22)
+    # Average American: Name(12) + space + Gender(8) + space + Age(8) = 30
+    avg_col = 'Average American'.center(30)
+    # Average Man: Name(12) + space + Age(6) = 19
+    man_col = 'Average Man'.center(19)
+    # Average Woman: Name(12) + space + Age(6) = 19
+    woman_col = 'Average Woman'.center(19)
     puts "\n#{year_col} | #{avg_col} | #{man_col} | #{woman_col}"
 
     name1 = 'Name'.center(12)
@@ -281,7 +284,7 @@ module TableFormatter
     name3 = 'Name'.center(12)
     age3 = 'Age'.center(6)
     puts "#{' ' * 6} | #{name1} #{gender} #{age1} | #{name2} #{age2} | #{name3} #{age3}"
-    puts '-' * 95
+    puts '-' * 86
   end
 
   # rubocop:disable Metrics/AbcSize

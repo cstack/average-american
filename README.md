@@ -60,9 +60,9 @@ ruby average_american.rb
 
 Output:
 ```
- Year  |         Average American         |      Average Man       |     Average Woman
+ Year  |        Average American        |     Average Man     |    Average Woman
        |     Name      Gender    Age    |     Name      Age   |     Name      Age
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
  2020  |   Jennifer    Female    38.5   |   Michael     37.5  |   Jennifer    39.6
  2021  |   Jennifer    Female    38.8   |   Michael     37.7  |   Jennifer    39.8
  2022  |   Jennifer    Female    38.9   |   Michael     37.8  |   Jennifer    40.0
