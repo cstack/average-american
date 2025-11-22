@@ -7,7 +7,7 @@ A Ruby command-line tool that constructs a profile of the "average American" bas
 - Fetches and parses real demographic data from the U.S. Census Bureau
 - Calculates median age (overall and gender-specific) and gender distribution (mode)
 - Determines most popular baby name based on gender and implied birth year
-- Shows 3 profiles by default: Average American, Average Man, Average Woman
+- Shows a table of 3 profiles (Average American, Average Man, Average Woman) across all available years
 - Supports filtering by specific year (2020-2024)
 - Supports filtering by gender (male or female)
 - Caches data locally for offline use
@@ -52,7 +52,7 @@ This will create `data/baby_names.json` with the most popular baby names by year
 
 ### Show Average American Profiles
 
-After fetching data, show 3 profiles for the most recent year:
+After fetching data, the default behavior shows a table of 3 profiles for all available years:
 
 ```bash
 ruby average_american.rb
@@ -60,28 +60,17 @@ ruby average_american.rb
 
 Output:
 ```
-The Average American:
-- Name: Jessica
-- Gender: Female
-- Age: 39.1 years old
-
---------------------------------------------------
-
-The Average American Man:
-- Name: Michael
-- Gender: Male
-- Age: 38.1 years old
-
---------------------------------------------------
-
-The Average American Woman:
-- Name: Jennifer
-- Gender: Female
-- Age: 40.2 years old
-(Year: 2024)
+ Year  |         Average American         |      Average Man       |     Average Woman
+       |     Name      Gender    Age    |     Name      Age   |     Name      Age
+-----------------------------------------------------------------------------------------------
+ 2020  |   Jennifer    Female    38.5   |   Michael     37.5  |   Jennifer    39.6
+ 2021  |   Jennifer    Female    38.8   |   Michael     37.7  |   Jennifer    39.8
+ 2022  |   Jennifer    Female    38.9   |   Michael     37.8  |   Jennifer    40.0
+ 2023  |   Jennifer    Female    39.0   |   Michael     37.9  |   Jennifer    40.1
+ 2024  |   Jessica     Female    39.1   |   Michael     38.1  |   Jennifer    40.2
 ```
 
-The default behavior outputs:
+The table shows three profiles for each year:
 1. **The Average American**: Gender determined by mode (most common), age from overall median, name based on that gender/age
 2. **The Average Man**: Gender fixed to Male, age from male-specific median, name based on Male/age
 3. **The Average Woman**: Gender fixed to Female, age from female-specific median, name based on Female/age

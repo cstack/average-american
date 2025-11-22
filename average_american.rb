@@ -228,6 +228,77 @@ class AveragePerson
   end
 end
 
+# Table formatter for displaying profiles
+module TableFormatter
+  def self.print_profiles_table(all_data, baby_names)
+    years = all_data.keys.map(&:to_i).sort
+    rows = build_table_rows(years, all_data, baby_names)
+    print_table(rows)
+  end
+
+  def self.build_table_rows(years, all_data, baby_names)
+    years.map do |year|
+      data = all_data[year.to_s]
+      build_row_for_year(year, data, baby_names)
+    end
+  end
+
+  def self.build_row_for_year(year, data, baby_names)
+    avg_american = AveragePerson.new(data, baby_names: baby_names, current_year: year)
+    avg_man = AveragePerson.new(data, baby_names: baby_names, current_year: year, gender: 'Male')
+    avg_woman = AveragePerson.new(data, baby_names: baby_names, current_year: year, gender: 'Female')
+
+    {
+      year: year,
+      avg_name: avg_american.name || 'N/A',
+      avg_gender: avg_american.gender,
+      avg_age: avg_american.age.round(1),
+      man_name: avg_man.name || 'N/A',
+      man_age: avg_man.age.round(1),
+      woman_name: avg_woman.name || 'N/A',
+      woman_age: avg_woman.age.round(1)
+    }
+  end
+
+  def self.print_table(rows)
+    print_header
+    rows.each { |row| print_row(row) }
+    puts
+  end
+
+  def self.print_header
+    year_col = 'Year'.center(6)
+    avg_col = 'Average American'.center(32)
+    man_col = 'Average Man'.center(22)
+    woman_col = 'Average Woman'.center(22)
+    puts "\n#{year_col} | #{avg_col} | #{man_col} | #{woman_col}"
+
+    name1 = 'Name'.center(12)
+    gender = 'Gender'.center(8)
+    age1 = 'Age'.center(8)
+    name2 = 'Name'.center(12)
+    age2 = 'Age'.center(6)
+    name3 = 'Name'.center(12)
+    age3 = 'Age'.center(6)
+    puts "#{' ' * 6} | #{name1} #{gender} #{age1} | #{name2} #{age2} | #{name3} #{age3}"
+    puts '-' * 95
+  end
+
+  # rubocop:disable Metrics/AbcSize
+  def self.print_row(row)
+    year = row[:year].to_s.center(6)
+    avg_name = row[:avg_name].center(12)
+    avg_gender = row[:avg_gender].center(8)
+    avg_age = row[:avg_age].to_s.center(8)
+    man_name = row[:man_name].center(12)
+    man_age = row[:man_age].to_s.center(6)
+    woman_name = row[:woman_name].center(12)
+    woman_age = row[:woman_age].to_s.center(6)
+    puts "#{year} | #{avg_name} #{avg_gender} #{avg_age} | #{man_name} #{man_age} | #{woman_name} #{woman_age}"
+  end
+  # rubocop:enable Metrics/AbcSize
+end
+
 # Command-line interface
 module CLI
   def self.parse_args(args)
@@ -261,13 +332,13 @@ module CLI
         --help, -h            Show this help message
 
       Examples:
-        ruby average_american.rb                          # Show 3 profiles for latest year
+        ruby average_american.rb                          # Show table of 3 profiles for all years
         ruby average_american.rb --year=2023              # Show 3 profiles for specific year
         ruby average_american.rb --gender=male            # Show average American man (latest year)
         ruby average_american.rb --year=2023 --gender=female  # Combine options
         ruby average_american.rb --fetch                  # Download Census data
 
-      Default behavior outputs 3 profiles:
+      Default behavior shows a table across all years with 3 profiles:
         1. The Average American (gender from mode, age from overall median)
         2. The Average Man (fixed gender, age from male-specific median)
         3. The Average Woman (fixed gender, age from female-specific median)
@@ -327,7 +398,7 @@ if __FILE__ == $PROGRAM_NAME
       end
       puts "(Year: #{options[:year]})"
     else
-      # Show 3 profiles for most recent year by default
+      # Show 3 profiles for all years in a table by default
       unless File.exist?(DataLoader::PARSED_DATA_FILE)
         raise <<~ERROR
           No Census data found. Please download and parse Census data first by running:
@@ -339,30 +410,18 @@ if __FILE__ == $PROGRAM_NAME
       end
 
       all_data = JSON.parse(File.read(DataLoader::PARSED_DATA_FILE))
-      latest_year = all_data.keys.map(&:to_i).max
-      data = all_data[latest_year.to_s]
 
       if options[:gender]
-        # Show only the specified gender
+        # Show only the specified gender for latest year
+        latest_year = all_data.keys.map(&:to_i).max
+        data = all_data[latest_year.to_s]
         person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: options[:gender])
         puts person
+        puts "(Year: #{latest_year})"
       else
-        # Show 3 profiles: Average American, Average Man, Average Woman
-        # 1. Average American (gender from mode, age from overall median, name conditioned on gender)
-        avg_american = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year)
-        puts avg_american
-        puts "\n#{'-' * 50}\n\n"
-
-        # 2. Average Man (gender fixed to Male, age from male median, name conditioned on Male)
-        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Male')
-        puts male_person
-        puts "\n#{'-' * 50}\n\n"
-
-        # 3. Average Woman (gender fixed to Female, age from female median, name conditioned on Female)
-        female_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Female')
-        puts female_person
+        # Show table of all years with 3 profiles each
+        TableFormatter.print_profiles_table(all_data, baby_names)
       end
-      puts "(Year: #{latest_year})"
     end
   rescue StandardError => e
     warn "Error: #{e.message}"
