@@ -69,18 +69,82 @@ module DataLoader
   end
 end
 
+# Historical Census data (1990-2009) from Census Bureau sources
+module HistoricalData
+  # Median ages from Census historical tables
+  # Sources: Census 1990-2000 estimates, 2000-2010 intercensal estimates
+  HISTORICAL_MEDIAN_AGES = {
+    1990 => { total: 32.8, male: 31.6, female: 34.0 },
+    1991 => { total: 32.8, male: 31.6, female: 34.0 },
+    1992 => { total: 32.9, male: 31.9, female: 34.0 },
+    1993 => { total: 33.1, male: 31.9, female: 34.3 },
+    1994 => { total: 33.4, male: 32.3, female: 34.6 },
+    1995 => { total: 34.3, male: 33.2, female: 35.5 },
+    1996 => { total: 34.7, male: 33.5, female: 35.8 },
+    1997 => { total: 34.9, male: 33.8, female: 36.1 },
+    1998 => { total: 35.2, male: 34.1, female: 36.3 },
+    1999 => { total: 35.5, male: 34.3, female: 36.6 },
+    2000 => { total: 35.3, male: 34.0, female: 36.5 },
+    2001 => { total: 35.6, male: 34.3, female: 36.9 },
+    2002 => { total: 35.7, male: 34.4, female: 37.0 },
+    2003 => { total: 35.9, male: 34.6, female: 37.1 },
+    2004 => { total: 36.0, male: 34.7, female: 37.3 },
+    2005 => { total: 36.2, male: 34.9, female: 37.5 },
+    2006 => { total: 36.4, male: 35.1, female: 37.7 },
+    2007 => { total: 36.6, male: 35.3, female: 37.9 },
+    2008 => { total: 36.8, male: 35.5, female: 38.1 },
+    2009 => { total: 36.9, male: 35.6, female: 38.2 }
+  }.freeze
+
+  # Gender distribution percentages (approximate, based on historical trends)
+  # Male percentage has remained around 49.2-49.5%, female around 50.5-50.8%
+  GENDER_DISTRIBUTION = { male: 49.3, female: 50.7 }.freeze
+
+  def self.get_historical_data(year)
+    ages = HISTORICAL_MEDIAN_AGES[year]
+    return nil unless ages
+
+    {
+      'gender' => {
+        'source' => 'US Census Historical',
+        'year' => year,
+        'distribution' => {
+          'Male' => GENDER_DISTRIBUTION[:male],
+          'Female' => GENDER_DISTRIBUTION[:female]
+        }
+      },
+      'age' => {
+        'median' => ages[:total],
+        'by_gender' => {
+          'Male' => ages[:male],
+          'Female' => ages[:female]
+        }
+      }
+    }
+  end
+end
+
 # Fetches data from Census.gov ACS API
 module CensusFetcher
   ACS_API_BASE = 'https://api.census.gov/data'
   # ACS 1-year data is available for most years 2010-2024, except 2020 (suspended due to COVID-19)
-  AVAILABLE_YEARS = (2010..2024).to_a - [2020]
+  ACS_AVAILABLE_YEARS = (2010..2024).to_a - [2020]
+  HISTORICAL_YEARS = (1990..2009).to_a
 
   def self.fetch_acs_data
-    puts 'Fetching data from Census ACS API...'
+    puts 'Fetching data from Census sources...'
     data_by_year = {}
 
-    AVAILABLE_YEARS.each do |year|
-      puts "  Fetching year #{year}..."
+    # Add historical data (1990-2009)
+    HISTORICAL_YEARS.each do |year|
+      puts "  Adding historical year #{year}..."
+      historical_data = HistoricalData.get_historical_data(year)
+      data_by_year[year.to_s] = historical_data if historical_data
+    end
+
+    # Fetch ACS data (2010-2024, excluding 2020)
+    ACS_AVAILABLE_YEARS.each do |year|
+      puts "  Fetching year #{year} from ACS API..."
       data_by_year[year.to_s] = fetch_year_data(year)
     end
 
@@ -198,6 +262,7 @@ module TableFormatter
     end
   end
 
+  # rubocop:disable Metrics/AbcSize
   def self.build_row_for_year(year, data, baby_names)
     avg_american = AveragePerson.new(data, baby_names: baby_names, current_year: year)
     avg_man = AveragePerson.new(data, baby_names: baby_names, current_year: year, gender: 'Male')
@@ -208,12 +273,16 @@ module TableFormatter
       avg_name: avg_american.name || 'N/A',
       avg_gender: avg_american.gender,
       avg_age: avg_american.age.round(1),
+      avg_birth_year: (year - avg_american.age).round,
       man_name: avg_man.name || 'N/A',
       man_age: avg_man.age.round(1),
+      man_birth_year: (year - avg_man.age).round,
       woman_name: avg_woman.name || 'N/A',
-      woman_age: avg_woman.age.round(1)
+      woman_age: avg_woman.age.round(1),
+      woman_birth_year: (year - avg_woman.age).round
     }
   end
+  # rubocop:enable Metrics/AbcSize
 
   def self.print_table(rows)
     print_header
@@ -221,26 +290,33 @@ module TableFormatter
     puts
   end
 
+  # rubocop:disable Metrics/AbcSize
   def self.print_header
     year_col = 'Year'.center(6)
-    # Average American: Name(12) + space + Gender(8) + space + Age(8) = 30
-    avg_col = 'Average American'.center(30)
-    # Average Man: Name(12) + space + Age(6) = 19
-    man_col = 'Average Man'.center(19)
-    # Average Woman: Name(12) + space + Age(6) = 19
-    woman_col = 'Average Woman'.center(19)
+    # Average American: Name(12) + space + Gender(8) + space + Age(8) + space + Birth(6) = 37
+    avg_col = 'Average American'.center(37)
+    # Average Man: Name(12) + space + Age(6) + space + Birth(6) = 26
+    man_col = 'Average Man'.center(26)
+    # Average Woman: Name(12) + space + Age(6) + space + Birth(6) = 26
+    woman_col = 'Average Woman'.center(26)
     puts "\n#{year_col} | #{avg_col} | #{man_col} | #{woman_col}"
 
     name1 = 'Name'.center(12)
     gender = 'Gender'.center(8)
     age1 = 'Age'.center(8)
+    birth1 = 'Birth'.center(6)
     name2 = 'Name'.center(12)
     age2 = 'Age'.center(6)
+    birth2 = 'Birth'.center(6)
     name3 = 'Name'.center(12)
     age3 = 'Age'.center(6)
-    puts "#{' ' * 6} | #{name1} #{gender} #{age1} | #{name2} #{age2} | #{name3} #{age3}"
-    puts '-' * 86
+    birth3 = 'Birth'.center(6)
+    subheader = "#{' ' * 6} | #{name1} #{gender} #{age1} #{birth1} | #{name2} #{age2} #{birth2} | "
+    subheader += "#{name3} #{age3} #{birth3}"
+    puts subheader
+    puts '-' * 107
   end
+  # rubocop:enable Metrics/AbcSize
 
   # rubocop:disable Metrics/AbcSize
   def self.print_row(row)
@@ -248,11 +324,16 @@ module TableFormatter
     avg_name = row[:avg_name].center(12)
     avg_gender = row[:avg_gender].center(8)
     avg_age = row[:avg_age].to_s.center(8)
+    avg_birth = row[:avg_birth_year].to_s.center(6)
     man_name = row[:man_name].center(12)
     man_age = row[:man_age].to_s.center(6)
+    man_birth = row[:man_birth_year].to_s.center(6)
     woman_name = row[:woman_name].center(12)
     woman_age = row[:woman_age].to_s.center(6)
-    puts "#{year} | #{avg_name} #{avg_gender} #{avg_age} | #{man_name} #{man_age} | #{woman_name} #{woman_age}"
+    woman_birth = row[:woman_birth_year].to_s.center(6)
+    output = "#{year} | #{avg_name} #{avg_gender} #{avg_age} #{avg_birth} | #{man_name} #{man_age} #{man_birth} | "
+    output += "#{woman_name} #{woman_age} #{woman_birth}"
+    puts output
   end
   # rubocop:enable Metrics/AbcSize
 end
@@ -284,9 +365,9 @@ module CLI
       Usage: ruby average_american.rb [OPTIONS]
 
       Options:
-        --year=YYYY           Show average American for specific year (2010-2024, excl. 2020)
+        --year=YYYY           Show average American for specific year (1990-2024, excl. 2020)
         --gender=male|female  Show average American of specific gender
-        --fetch               Fetch latest Census ACS data from API
+        --fetch               Fetch Census data (historical + ACS API)
         --help, -h            Show this help message
 
       Examples:
