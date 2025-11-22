@@ -9,7 +9,11 @@
       }
     },
     "age": {
-      "median": 38.5
+      "median": 38.5,
+      "by_gender": {
+        "Male": 37.5,
+        "Female": 39.6
+      }
     }
   },
   "2021": {
@@ -22,7 +26,11 @@
       }
     },
     "age": {
-      "median": 38.8
+      "median": 38.8,
+      "by_gender": {
+        "Male": 37.7,
+        "Female": 39.8
+      }
     }
   },
   "2022": {
@@ -35,7 +43,11 @@
       }
     },
     "age": {
-      "median": 38.9
+      "median": 38.9,
+      "by_gender": {
+        "Male": 37.8,
+        "Female": 40.0
+      }
     }
   },
   "2023": {
@@ -48,7 +60,11 @@
       }
     },
     "age": {
-      "median": 39.0
+      "median": 39.0,
+      "by_gender": {
+        "Male": 37.9,
+        "Female": 40.1
+      }
     }
   },
   "2024": {
@@ -61,7 +77,11 @@
       }
     },
     "age": {
-      "median": 39.1
+      "median": 39.1,
+      "by_gender": {
+        "Male": 38.1,
+        "Female": 40.2
+      }
     }
   }
 }

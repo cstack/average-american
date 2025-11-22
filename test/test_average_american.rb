@@ -191,7 +191,7 @@ class TestAveragePerson < Minitest::Test
   def test_to_s_formats_output_without_name
     person = AveragePerson.new(@data)
     output = person.to_s
-    assert_match(/The Average American Woman:/, output)
+    assert_match(/The Average American:/, output)
     assert_match(/Gender: Female/, output)
     assert_match(/Age: 38.9 years old/, output)
     refute_match(/Name:/, output)

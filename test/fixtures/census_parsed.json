@@ -9,7 +9,11 @@
       }
     },
     "age": {
-      "median": 38.5
+      "median": 38.5,
+      "by_gender": {
+        "Male": 37.9,
+        "Female": 39.0
+      }
     }
   },
   "2021": {
@@ -22,7 +26,11 @@
       }
     },
     "age": {
-      "median": 38.8
+      "median": 38.8,
+      "by_gender": {
+        "Male": 38.2,
+        "Female": 39.3
+      }
     }
   },
   "2023": {
@@ -35,7 +43,11 @@
       }
     },
     "age": {
-      "median": 39.0
+      "median": 39.0,
+      "by_gender": {
+        "Male": 38.4,
+        "Female": 39.5
+      }
     }
   }
 }

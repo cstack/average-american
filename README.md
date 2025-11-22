@@ -5,9 +5,9 @@ A Ruby command-line tool that constructs a profile of the "average American" bas
 ## Features
 
 - Fetches and parses real demographic data from the U.S. Census Bureau
-- Calculates median age and gender distribution (mode)
+- Calculates median age (overall and gender-specific) and gender distribution (mode)
 - Determines most popular baby name based on gender and implied birth year
-- Shows profiles for both male and female for the most recent year by default
+- Shows 3 profiles by default: Average American, Average Man, Average Woman
 - Supports filtering by specific year (2020-2024)
 - Supports filtering by gender (male or female)
 - Caches data locally for offline use
@@ -52,7 +52,7 @@ This will create `data/baby_names.json` with the most popular baby names by year
 
 ### Show Average American Profiles
 
-After fetching data, show profiles for both genders for the most recent year:
+After fetching data, show 3 profiles for the most recent year:
 
 ```bash
 ruby average_american.rb
@@ -60,44 +60,61 @@ ruby average_american.rb
 
 Output:
 ```
-The Average American Man:
-- Name: Michael
-- Gender: Male
-- Age: 39.1 years old
-(Year: 2024)
-
---------------------------------------------------
-
-The Average American Woman:
+The Average American:
 - Name: Jessica
 - Gender: Female
 - Age: 39.1 years old
-(Year: 2024)
-```
 
-### Show a Specific Year
+--------------------------------------------------
 
-Show both genders for a specific year:
-
-```bash
-ruby average_american.rb --year=2020
-```
-
-Output:
-```
 The Average American Man:
 - Name: Michael
 - Gender: Male
-- Age: 38.5 years old
-(Year: 2020)
+- Age: 38.1 years old
 
 --------------------------------------------------
 
 The Average American Woman:
 - Name: Jennifer
 - Gender: Female
-- Age: 38.5 years old
-(Year: 2020)
+- Age: 40.2 years old
+(Year: 2024)
+```
+
+The default behavior outputs:
+1. **The Average American**: Gender determined by mode (most common), age from overall median, name based on that gender/age
+2. **The Average Man**: Gender fixed to Male, age from male-specific median, name based on Male/age
+3. **The Average Woman**: Gender fixed to Female, age from female-specific median, name based on Female/age
+
+### Show a Specific Year
+
+Show 3 profiles for a specific year:
+
+```bash
+ruby average_american.rb --year=2023
+```
+
+Output:
+```
+The Average American:
+- Name: Jennifer
+- Gender: Female
+- Age: 39.0 years old
+
+--------------------------------------------------
+
+The Average American Man:
+- Name: Michael
+- Gender: Male
+- Age: 37.9 years old
+
+--------------------------------------------------
+
+The Average American Woman:
+- Name: Jennifer
+- Gender: Female
+- Age: 40.1 years old
+(Year: 2023)
 ```
 
 ### Filter by Gender
@@ -206,12 +223,23 @@ Fix any violations before committing.
 
 ## Methodology
 
-Following John Green's approach:
-- **Gender**: Uses mode (most common value) from the gender distribution
-- **Age**: Uses median age from Census data
-- **Name**: Uses the most popular baby name from the calculated birth year
-  - Example: If median age is 39.1 in 2024, birth year ≈ 1985
-  - For females born in 1985, the most popular name was Jessica
+Following John Green's approach with conditional probability:
+
+**The Average American** (unconditional):
+- **Gender**: Mode (most common value) from the gender distribution
+- **Age**: Median age from overall population
+- **Name**: Most popular baby name for the determined gender and birth year
+
+**The Average Man/Woman** (conditional on gender):
+- **Gender**: Fixed to Male or Female
+- **Age**: Median age specific to that gender
+- **Name**: Most popular baby name for that gender and birth year
+  - Example: If median age for females is 39.6 in 2024, birth year ≈ 1984
+  - For females born in 1984, the most popular name was Jessica
+
+This approach properly handles conditional probability:
+- The Average American uses overall statistics
+- The Average Man/Woman uses gender-specific statistics, reflecting that conditioning on gender changes the age distribution
 - Data is specific to the United States population
 
 ## Current Demographics

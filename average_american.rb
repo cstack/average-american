@@ -161,8 +161,18 @@ module CensusParser
   def self.extract_age_data(sheet, both_sexes_col)
     # Row 40 contains median ages
     # both_sexes_col is the "Both Sexes" column for this year
+    # both_sexes_col + 1 = Male column
+    # both_sexes_col + 2 = Female column
     median_age = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col))
-    { 'median' => median_age }
+    median_age_male = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col + 1))
+    median_age_female = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col + 2))
+    {
+      'median' => median_age,
+      'by_gender' => {
+        'Male' => median_age_male,
+        'Female' => median_age_female
+      }
+    }
   end
 
   def self.parse_number(cell_value)
@@ -175,17 +185,27 @@ class AveragePerson
   attr_reader :gender, :age, :name
 
   def initialize(data, baby_names: {}, current_year: Time.now.year, gender: nil)
+    @gender_specified = !gender.nil?
     @gender = gender || Stats.mode(data['gender']['distribution'])
-    @age = data['age']['median']
+    # Use gender-specific median age if gender is specified, otherwise use overall median
+    @age = if @gender_specified && data.dig('age', 'by_gender', @gender)
+             data['age']['by_gender'][@gender]
+           else
+             data['age']['median']
+           end
     @current_year = current_year
     @name = determine_name(baby_names)
   end
 
   def to_s
-    gender_title = case @gender
-                   when 'Male' then ' Man'
-                   when 'Female' then ' Woman'
-                   else ''
+    gender_title = if @gender_specified
+                     case @gender
+                     when 'Male' then ' Man'
+                     when 'Female' then ' Woman'
+                     else ''
+                     end
+                   else
+                     ''
                    end
     output = "The Average American#{gender_title}:\n"
     output += "- Name: #{@name}\n" if @name
@@ -241,11 +261,16 @@ module CLI
         --help, -h            Show this help message
 
       Examples:
-        ruby average_american.rb                          # Show both genders for latest year
-        ruby average_american.rb --year=2023              # Show both genders for specific year
+        ruby average_american.rb                          # Show 3 profiles for latest year
+        ruby average_american.rb --year=2023              # Show 3 profiles for specific year
         ruby average_american.rb --gender=male            # Show average American man (latest year)
         ruby average_american.rb --year=2023 --gender=female  # Combine options
         ruby average_american.rb --fetch                  # Download Census data
+
+      Default behavior outputs 3 profiles:
+        1. The Average American (gender from mode, age from overall median)
+        2. The Average Man (fixed gender, age from male-specific median)
+        3. The Average Woman (fixed gender, age from female-specific median)
     HELP
   end
 
@@ -285,18 +310,24 @@ if __FILE__ == $PROGRAM_NAME
         person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: options[:gender])
         puts person
       else
-        # Show both genders
-        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: 'Male')
-        puts male_person
-        puts "(Year: #{options[:year]})"
+        # Show 3 profiles: Average American, Average Man, Average Woman
+        # 1. Average American (gender from mode, age from overall median, name conditioned on gender)
+        avg_american = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year])
+        puts avg_american
         puts "\n#{'-' * 50}\n\n"
 
+        # 2. Average Man (gender fixed to Male, age from male median, name conditioned on Male)
+        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: 'Male')
+        puts male_person
+        puts "\n#{'-' * 50}\n\n"
+
+        # 3. Average Woman (gender fixed to Female, age from female median, name conditioned on Female)
         female_person = AveragePerson.new(data, baby_names: baby_names, current_year: options[:year], gender: 'Female')
         puts female_person
       end
       puts "(Year: #{options[:year]})"
     else
-      # Show both male and female for most recent year by default
+      # Show 3 profiles for most recent year by default
       unless File.exist?(DataLoader::PARSED_DATA_FILE)
         raise <<~ERROR
           No Census data found. Please download and parse Census data first by running:
@@ -316,12 +347,18 @@ if __FILE__ == $PROGRAM_NAME
         person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: options[:gender])
         puts person
       else
-        # Show both male and female
-        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Male')
-        puts male_person
-        puts "(Year: #{latest_year})"
+        # Show 3 profiles: Average American, Average Man, Average Woman
+        # 1. Average American (gender from mode, age from overall median, name conditioned on gender)
+        avg_american = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year)
+        puts avg_american
         puts "\n#{'-' * 50}\n\n"
 
+        # 2. Average Man (gender fixed to Male, age from male median, name conditioned on Male)
+        male_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Male')
+        puts male_person
+        puts "\n#{'-' * 50}\n\n"
+
+        # 3. Average Woman (gender fixed to Female, age from female median, name conditioned on Female)
         female_person = AveragePerson.new(data, baby_names: baby_names, current_year: latest_year, gender: 'Female')
         puts female_person
       end
