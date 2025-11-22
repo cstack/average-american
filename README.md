@@ -8,8 +8,9 @@ A Ruby command-line tool that constructs a profile of the "average American" bas
 - Calculates median age (overall and gender-specific) and gender distribution (mode)
 - Determines most popular baby name based on gender and implied birth year
 - Shows a table of 3 profiles (Average American, Average Man, Average Woman) across all available years
-- Supports filtering by specific year (2020-2024)
+- Supports filtering by specific year (2010-2024, excluding 2020)
 - Supports filtering by gender (male or female)
+- Fetches data directly from Census Bureau's American Community Survey (ACS) API
 - Caches data locally for offline use
 - Fully tested with minitest
 - Linted with rubocop
@@ -27,16 +28,16 @@ bundle install
 
 ### First Time Setup: Fetch Census Data
 
-**Required before first use:** Download and parse the latest Census data:
+**Required before first use:** Fetch the latest Census data from the ACS API:
 
 ```bash
 ruby average_american.rb --fetch
 ```
 
 This will:
-- Download the Census Excel file from census.gov (one-time download, cached locally)
-- Parse demographic data for years 2020-2024
-- Save the parsed data to `data/census_parsed.json`
+- Fetch demographic data from the Census Bureau's American Community Survey (ACS) 1-Year API
+- Retrieve data for years 2010-2024 (excluding 2020, which was not published due to COVID-19)
+- Save the data to `data/census_parsed.json`
 
 If you try to run the script without fetching first, you'll see a helpful error message with instructions.
 
@@ -148,7 +149,10 @@ ruby average_american.rb --help
 
 ## Data Sources
 
-- **Census Bureau**: Age and gender data from [Annual Estimates of the Resident Population](https://www2.census.gov/programs-surveys/popest/tables/2020-2024/national/asrh/nc-est2024-agesex.xlsx)
+- **Census Bureau**: Age and gender data from the [American Community Survey (ACS) 1-Year Estimates API](https://www.census.gov/data/developers/data-sets/acs-1year.html)
+  - Table B01002: Median Age by Sex
+  - Table B01001: Sex by Age (for population counts)
+  - Years available: 2010-2024 (excluding 2020)
 - **Baby Names**: Social Security Administration data via [Kaggle US Baby Names dataset](https://www.kaggle.com/datasets/kaggle/us-baby-names) (1880-2014)
 
 ## Project Structure
@@ -164,10 +168,8 @@ average-american/
 │       └── baby_names.json      # Baby names fixture data
 ├── data/
 │   ├── NationalNames.csv        # Raw baby names data (from Kaggle)
-│   ├── census_parsed.json       # Parsed Census data (created by --fetch)
-│   ├── baby_names.json          # Parsed baby names (created by fetch_baby_names.rb)
-│   └── cache/
-│       └── census_age_sex.xlsx  # Downloaded Census file (cached)
+│   ├── census_parsed.json       # Census data from ACS API (created by --fetch)
+│   └── baby_names.json          # Parsed baby names (created by fetch_baby_names.rb)
 ├── Gemfile                      # Dependencies
 ├── .rubocop.yml                 # Code style configuration
 └── README.md                    # This file
@@ -199,16 +201,18 @@ Fix any violations before committing.
 
 ### How It Works
 
-1. **Census Data Fetching**: Downloads the Census Excel file and caches it locally
-2. **Census Parsing**: Extracts gender distribution and median age for each year (2020-2024)
-3. **Baby Name Parsing**: Parses NationalNames.csv to find most popular names by year and gender
-4. **Calculation**:
+1. **Census Data Fetching**: Fetches data from Census Bureau's ACS 1-Year Estimates API
+   - Table B01002 for median age by sex
+   - Table B01001 for population counts by sex
+   - Years 2010-2024 (excluding 2020, which was not published)
+2. **Baby Name Parsing**: Parses NationalNames.csv to find most popular names by year and gender
+3. **Calculation**:
    - **Gender**: Mode (most common) - calculated from total population by gender
-   - **Age**: Median age as reported by Census Bureau
+   - **Age**: Median age as reported by Census ACS
    - **Name**: Determined by:
      - Birth year = current year - median age
      - Most popular name for that birth year and gender
-5. **Output**: Formats the data into a readable profile for each year
+4. **Output**: Formats the data into a readable table across all years
 
 ## Methodology
 

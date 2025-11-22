@@ -3,8 +3,6 @@
 require 'json'
 require 'net/http'
 require 'uri'
-require 'fileutils'
-require 'roo'
 
 # Statistical calculation functions
 module Stats
@@ -71,113 +69,70 @@ module DataLoader
   end
 end
 
-# Fetches data from Census.gov
+# Fetches data from Census.gov ACS API
 module CensusFetcher
-  CENSUS_URL = 'https://www2.census.gov/programs-surveys/popest/tables/2020-2024/national/asrh/nc-est2024-agesex.xlsx'
-  CACHE_DIR = 'data/cache'
+  ACS_API_BASE = 'https://api.census.gov/data'
+  # ACS 1-year data is available for most years 2010-2024, except 2020 (suspended due to COVID-19)
+  AVAILABLE_YEARS = (2010..2024).to_a - [2020]
 
-  def self.download_file(url = CENSUS_URL)
-    FileUtils.mkdir_p(CACHE_DIR)
-    file_path = File.join(CACHE_DIR, 'census_age_sex.xlsx')
-
-    return file_path if File.exist?(file_path)
-
-    uri = URI(url)
-    response = Net::HTTP.get_response(uri)
-
-    raise "Failed to download file: #{response.code}" unless response.code == '200'
-
-    File.binwrite(file_path, response.body)
-    file_path
-  end
-end
-
-# Parses Census Excel file to extract demographic data
-module CensusParser
-  TOTAL_ROW = 6
-  MEDIAN_AGE_ROW = 40
-  YEAR_ROW = 4
-
-  def self.parse_excel(file_path)
-    xlsx = Roo::Spreadsheet.open(file_path)
-    sheet = xlsx.sheet(0)
-
+  def self.fetch_acs_data
+    puts 'Fetching data from Census ACS API...'
     data_by_year = {}
-    years = extract_years(sheet)
 
-    years.each do |year, col_index|
-      gender_data = extract_gender_data(sheet, col_index)
-      age_data = extract_age_data(sheet, col_index)
-
-      data_by_year[year] = {
-        'gender' => {
-          'source' => 'US Census',
-          'year' => year,
-          'distribution' => gender_data
-        },
-        'age' => age_data
-      }
+    AVAILABLE_YEARS.each do |year|
+      puts "  Fetching year #{year}..."
+      data_by_year[year.to_s] = fetch_year_data(year)
     end
 
     data_by_year
   end
 
-  def self.extract_years(sheet)
-    # Row 4 contains years - find columns where years appear
-    years = {}
-    (1..sheet.last_column).each do |col|
-      cell_value = sheet.cell(YEAR_ROW, col).to_s.strip
-      # Look for 4-digit years
-      years[cell_value.to_i] = col if cell_value =~ /^202[0-4]$/
-    end
-    years
-  end
-
-  def self.extract_gender_data(sheet, both_sexes_col)
-    # For this Census format:
-    # both_sexes_col = Both Sexes column
-    # both_sexes_col + 1 = Male column
-    # both_sexes_col + 2 = Female column
-    # Row 6 = Total population
-    male_col = both_sexes_col + 1
-    female_col = both_sexes_col + 2
-
-    male_pop = parse_number(sheet.cell(TOTAL_ROW, male_col))
-    female_pop = parse_number(sheet.cell(TOTAL_ROW, female_col))
-
-    calculate_gender_percentages('Male' => male_pop, 'Female' => female_pop)
-  end
-
-  def self.calculate_gender_percentages(gender_data)
-    total = gender_data.values.sum
-    return {} if total.zero?
+  def self.fetch_year_data(year)
+    age_data = fetch_age_data(year)
+    gender_data = fetch_gender_data(year)
 
     {
-      'Male' => (gender_data['Male'] / total * 100).round(1),
-      'Female' => (gender_data['Female'] / total * 100).round(1)
+      'gender' => gender_data,
+      'age' => age_data
     }
   end
 
-  def self.extract_age_data(sheet, both_sexes_col)
-    # Row 40 contains median ages
-    # both_sexes_col is the "Both Sexes" column for this year
-    # both_sexes_col + 1 = Male column
-    # both_sexes_col + 2 = Female column
-    median_age = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col))
-    median_age_male = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col + 1))
-    median_age_female = parse_number(sheet.cell(MEDIAN_AGE_ROW, both_sexes_col + 2))
+  def self.fetch_age_data(year)
+    age_url = "#{ACS_API_BASE}/#{year}/acs/acs1?get=B01002_001E,B01002_002E,B01002_003E&for=us:1"
+    age_response = Net::HTTP.get_response(URI(age_url))
+    raise "Failed to fetch age data for #{year}: #{age_response.code}" unless age_response.code == '200'
+
+    age_data = JSON.parse(age_response.body)
     {
-      'median' => median_age,
+      'median' => age_data[1][0].to_f,
       'by_gender' => {
-        'Male' => median_age_male,
-        'Female' => median_age_female
+        'Male' => age_data[1][1].to_f,
+        'Female' => age_data[1][2].to_f
       }
     }
   end
 
-  def self.parse_number(cell_value)
-    cell_value.to_s.gsub(/[,\s]/, '').to_f
+  # rubocop:disable Metrics/AbcSize
+  def self.fetch_gender_data(year)
+    pop_url = "#{ACS_API_BASE}/#{year}/acs/acs1?get=B01001_001E,B01001_002E,B01001_026E&for=us:1"
+    pop_response = Net::HTTP.get_response(URI(pop_url))
+    raise "Failed to fetch population data for #{year}: #{pop_response.code}" unless pop_response.code == '200'
+
+    pop_data = JSON.parse(pop_response.body)
+    total_pop = pop_data[1][0].to_f
+    male_pop = pop_data[1][1].to_f
+    female_pop = pop_data[1][2].to_f
+
+    {
+      'source' => 'US Census ACS',
+      'year' => year,
+      'distribution' => {
+        'Male' => (male_pop / total_pop * 100).round(1),
+        'Female' => (female_pop / total_pop * 100).round(1)
+      }
+    }
   end
+  # rubocop:enable Metrics/AbcSize
 end
 
 # Represents the average American based on demographic data
@@ -329,9 +284,9 @@ module CLI
       Usage: ruby average_american.rb [OPTIONS]
 
       Options:
-        --year=YYYY           Show average American for specific year (2020-2024)
+        --year=YYYY           Show average American for specific year (2010-2024, excl. 2020)
         --gender=male|female  Show average American of specific gender
-        --fetch               Download and parse latest Census data
+        --fetch               Fetch latest Census ACS data from API
         --help, -h            Show this help message
 
       Examples:
@@ -349,15 +304,10 @@ module CLI
   end
 
   def self.fetch_and_parse
-    puts 'Downloading Census data...'
-    file_path = CensusFetcher.download_file
-    puts "Downloaded to #{file_path}"
+    parsed_data = CensusFetcher.fetch_acs_data
+    puts "Fetched data for years: #{parsed_data.keys.sort.join(', ')}"
 
-    puts 'Parsing Excel file...'
-    parsed_data = CensusParser.parse_excel(file_path)
-    puts "Parsed data for years: #{parsed_data.keys.sort.join(', ')}"
-
-    puts 'Saving parsed data...'
+    puts 'Saving data...'
     DataLoader.save_parsed_data(parsed_data)
     puts 'Data saved successfully!'
   end

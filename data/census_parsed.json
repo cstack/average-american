@@ -1,24 +1,177 @@
 {
-  "2020": {
+  "2010": {
     "gender": {
-      "source": "US Census",
-      "year": 2020,
+      "source": "US Census ACS",
+      "year": 2010,
       "distribution": {
-        "Male": 49.5,
-        "Female": 50.5
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.2,
+      "by_gender": {
+        "Male": 35.8,
+        "Female": 38.5
+      }
+    }
+  },
+  "2011": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2011,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.3,
+      "by_gender": {
+        "Male": 35.9,
+        "Female": 38.7
+      }
+    }
+  },
+  "2012": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2012,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.4,
+      "by_gender": {
+        "Male": 36.1,
+        "Female": 38.8
+      }
+    }
+  },
+  "2013": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2013,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.5,
+      "by_gender": {
+        "Male": 36.2,
+        "Female": 38.9
+      }
+    }
+  },
+  "2014": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2014,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.7,
+      "by_gender": {
+        "Male": 36.3,
+        "Female": 39.0
+      }
+    }
+  },
+  "2015": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2015,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.8,
+      "by_gender": {
+        "Male": 36.5,
+        "Female": 39.1
+      }
+    }
+  },
+  "2016": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2016,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 37.9,
+      "by_gender": {
+        "Male": 36.6,
+        "Female": 39.2
+      }
+    }
+  },
+  "2017": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2017,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 38.1,
+      "by_gender": {
+        "Male": 36.8,
+        "Female": 39.4
+      }
+    }
+  },
+  "2018": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2018,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
+      }
+    },
+    "age": {
+      "median": 38.2,
+      "by_gender": {
+        "Male": 36.9,
+        "Female": 39.6
+      }
+    }
+  },
+  "2019": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2019,
+      "distribution": {
+        "Male": 49.2,
+        "Female": 50.8
       }
     },
     "age": {
       "median": 38.5,
       "by_gender": {
-        "Male": 37.5,
-        "Female": 39.6
+        "Male": 37.2,
+        "Female": 39.8
       }
     }
   },
   "2021": {
     "gender": {
-      "source": "US Census",
+      "source": "US Census ACS",
       "year": 2021,
       "distribution": {
         "Male": 49.5,
@@ -29,34 +182,17 @@
       "median": 38.8,
       "by_gender": {
         "Male": 37.7,
-        "Female": 39.8
+        "Female": 39.9
       }
     }
   },
   "2022": {
     "gender": {
-      "source": "US Census",
+      "source": "US Census ACS",
       "year": 2022,
       "distribution": {
-        "Male": 49.5,
-        "Female": 50.5
-      }
-    },
-    "age": {
-      "median": 38.9,
-      "by_gender": {
-        "Male": 37.8,
-        "Female": 40.0
-      }
-    }
-  },
-  "2023": {
-    "gender": {
-      "source": "US Census",
-      "year": 2023,
-      "distribution": {
-        "Male": 49.5,
-        "Female": 50.5
+        "Male": 49.6,
+        "Female": 50.4
       }
     },
     "age": {
@@ -67,9 +203,26 @@
       }
     }
   },
+  "2023": {
+    "gender": {
+      "source": "US Census ACS",
+      "year": 2023,
+      "distribution": {
+        "Male": 49.5,
+        "Female": 50.5
+      }
+    },
+    "age": {
+      "median": 39.2,
+      "by_gender": {
+        "Male": 38.1,
+        "Female": 40.3
+      }
+    }
+  },
   "2024": {
     "gender": {
-      "source": "US Census",
+      "source": "US Census ACS",
       "year": 2024,
       "distribution": {
         "Male": 49.5,
@@ -77,10 +230,10 @@
       }
     },
     "age": {
-      "median": 39.1,
+      "median": 39.2,
       "by_gender": {
         "Male": 38.1,
-        "Female": 40.2
+        "Female": 40.3
       }
     }
   }
