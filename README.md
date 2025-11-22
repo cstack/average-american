@@ -8,9 +8,9 @@ A Ruby command-line tool that constructs a profile of the "average American" bas
 - Calculates median age (overall and gender-specific) and gender distribution (mode)
 - Determines most popular baby name based on gender and implied birth year
 - Shows a table of 3 profiles (Average American, Average Man, Average Woman) across all available years
-- Supports filtering by specific year (1990-2024, excluding 2020)
+- Supports filtering by specific year (1820-2024, excluding 2020)
 - Supports filtering by gender (male or female)
-- Combines historical Census data (1990-2009) with ACS API data (2010-2024)
+- Combines historical Census data (1820-2000) with ACS API data (2010-2024)
 - Caches data locally for offline use
 - Fully tested with minitest
 - Linted with rubocop
@@ -35,7 +35,7 @@ ruby average_american.rb --fetch
 ```
 
 This will:
-- Load historical Census data for years 1990-2009 from compiled Census Bureau sources
+- Load historical Census data for decennial census years (1820-2000) from Wikipedia/Census Bureau sources
 - Fetch demographic data from the Census Bureau's American Community Survey (ACS) 1-Year API for years 2010-2024
 - Note: 2020 ACS 1-year data was not published due to COVID-19
 - Save all data to `data/census_parsed.json`
@@ -60,17 +60,16 @@ After fetching data, the default behavior shows a table of 3 profiles for all av
 ruby average_american.rb
 ```
 
-Output (showing first few and last few years of the 34-year span):
+Output (showing sample years across 204-year span):
 ```
  Year  |           Average American            |        Average Man         |       Average Woman
        |     Name      Gender    Age    Birth  |     Name      Age   Birth  |     Name      Age   Birth
 -----------------------------------------------------------------------------------------------------------
- 1990  |     Mary      Female    32.8    1957  |   Michael     31.6   1958  |     Mary      34.0   1956
- 1991  |     Mary      Female    32.8    1958  |   Michael     31.6   1959  |     Mary      34.0   1957
- 1992  |     Mary      Female    32.9    1959  |    David      31.9   1960  |     Mary      34.0   1958
- ...
- 2022  |   Jennifer    Female    39.0    1983  |   Michael     37.9   1984  |   Jennifer    40.1   1982
- 2023  |   Jennifer    Female    39.2    1984  |   Michael     38.1   1985  |   Jennifer    40.3   1983
+ 1820  |     N/A       Female    16.7    1803  |     N/A       16.6   1803  |     N/A       16.8   1803
+ 1850  |     N/A       Female    18.9    1831  |     N/A       19.2   1831  |     N/A       18.6   1831
+ 1900  |     N/A       Female    22.9    1877  |     N/A       23.3   1877  |     N/A       22.4   1878
+ 1950  |     Mary      Female    30.2    1920  |     John      29.9   1920  |     Mary      30.5   1920
+ 2000  |     Lisa      Female    35.3    1965  |   Michael     34.0   1966  |     Lisa      36.5   1964
  2024  |   Jessica     Female    39.2    1985  |   Michael     38.1   1986  |   Jennifer    40.3   1984
 ```
 
@@ -80,6 +79,12 @@ The table shows three profiles for each year, including their calculated birth y
 3. **The Average Woman**: Gender fixed to Female, age from female-specific median, name based on Female/age
 
 The **Birth** column shows the calculated birth year (current year - median age), which is used to determine the most popular name for that cohort.
+
+**Historical Insights:**
+- In 1820, the median age was only 16.7 years (born ~1803)
+- By 2024, the median age reached 39.2 years (born ~1985) - a 135% increase
+- The aging of America is clearly visible: from teenagers in 1820 to near 40 in 2024
+- Names are N/A before 1880 (when baby name records began)
 
 ### Show a Specific Year
 
@@ -155,14 +160,15 @@ ruby average_american.rb --help
 ## Data Sources
 
 - **Census Bureau**: Age and gender data from multiple Census sources:
-  - **Historical (1990-2009)**: Compiled from Census Population Estimates and Decennial Census data
-    - 1990-2000 estimates from [Census Population Estimates](https://www2.census.gov/programs-surveys/popest/tables/1990-2000/national/totals/)
-    - 2000-2010 intercensal estimates from Census Bureau historical tables
+  - **Historical (1820-2000)**: Decennial Census median ages from [Wikipedia Demographics of the United States](https://en.wikipedia.org/wiki/Demographics_of_the_United_States)
+    - Includes every decennial census from 1820-2000
+    - Median ages by sex from U.S. Census Bureau historical tables
   - **Modern (2010-2024)**: [American Community Survey (ACS) 1-Year Estimates API](https://www.census.gov/data/developers/data-sets/acs-1year.html)
     - Table B01002: Median Age by Sex
     - Table B01001: Sex by Age (for population counts)
     - Note: 2020 excluded (not published due to COVID-19)
 - **Baby Names**: Social Security Administration data via [Kaggle US Baby Names dataset](https://www.kaggle.com/datasets/kaggle/us-baby-names) (1880-2014)
+  - Names shown as "N/A" for years before 1880 (no data available)
 
 ## Project Structure
 
@@ -178,7 +184,8 @@ average-american/
 ├── data/
 │   ├── NationalNames.csv        # Raw baby names data (from Kaggle)
 │   ├── census_parsed.json       # Census data from ACS API (created by --fetch)
-│   └── baby_names.json          # Parsed baby names (created by fetch_baby_names.rb)
+│   ├── baby_names.json          # Parsed baby names (created by fetch_baby_names.rb)
+│   └── wikipedia_median_age.txt # Historical median age data from Wikipedia
 ├── Gemfile                      # Dependencies
 ├── .rubocop.yml                 # Code style configuration
 └── README.md                    # This file
@@ -211,19 +218,20 @@ Fix any violations before committing.
 ### How It Works
 
 1. **Census Data Fetching**: Combines historical and modern data
-   - **1990-2009**: Historical median ages from Census Bureau population estimates
+   - **1820-2000**: Historical median ages from decennial census (every 10 years)
    - **2010-2024**: Live data from ACS 1-Year Estimates API
      - Table B01002 for median age by sex
      - Table B01001 for population counts by sex
      - 2020 excluded (not published due to COVID-19)
-2. **Baby Name Parsing**: Parses NationalNames.csv to find most popular names by year and gender
+2. **Baby Name Parsing**: Parses NationalNames.csv to find most popular names by year and gender (1880+)
 3. **Calculation**:
    - **Gender**: Mode (most common) - calculated from total population by gender
    - **Age**: Median age as reported by Census
    - **Birth Year**: Calculated as current year - median age
    - **Name**: Determined by:
      - Most popular name for the calculated birth year and gender
-4. **Output**: Formats the data into a readable table spanning 34 years (1990-2024)
+     - "N/A" for years before 1880 (no baby name data available)
+4. **Output**: Formats the data into a readable table spanning 204 years (1820-2024)
 
 ## Methodology
 

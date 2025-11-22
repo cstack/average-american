@@ -69,31 +69,31 @@ module DataLoader
   end
 end
 
-# Historical Census data (1990-2009) from Census Bureau sources
+# Historical Census data from Census Bureau and Wikipedia sources
 module HistoricalData
-  # Median ages from Census historical tables
-  # Sources: Census 1990-2000 estimates, 2000-2010 intercensal estimates
+  # Median ages from Census Decennial Census and Wikipedia
+  # Source: https://en.wikipedia.org/wiki/Demographics_of_the_United_States
+  # Decennial census years (1820-2010) and select recent years
   HISTORICAL_MEDIAN_AGES = {
-    1990 => { total: 32.8, male: 31.6, female: 34.0 },
-    1991 => { total: 32.8, male: 31.6, female: 34.0 },
-    1992 => { total: 32.9, male: 31.9, female: 34.0 },
-    1993 => { total: 33.1, male: 31.9, female: 34.3 },
-    1994 => { total: 33.4, male: 32.3, female: 34.6 },
-    1995 => { total: 34.3, male: 33.2, female: 35.5 },
-    1996 => { total: 34.7, male: 33.5, female: 35.8 },
-    1997 => { total: 34.9, male: 33.8, female: 36.1 },
-    1998 => { total: 35.2, male: 34.1, female: 36.3 },
-    1999 => { total: 35.5, male: 34.3, female: 36.6 },
-    2000 => { total: 35.3, male: 34.0, female: 36.5 },
-    2001 => { total: 35.6, male: 34.3, female: 36.9 },
-    2002 => { total: 35.7, male: 34.4, female: 37.0 },
-    2003 => { total: 35.9, male: 34.6, female: 37.1 },
-    2004 => { total: 36.0, male: 34.7, female: 37.3 },
-    2005 => { total: 36.2, male: 34.9, female: 37.5 },
-    2006 => { total: 36.4, male: 35.1, female: 37.7 },
-    2007 => { total: 36.6, male: 35.3, female: 37.9 },
-    2008 => { total: 36.8, male: 35.5, female: 38.1 },
-    2009 => { total: 36.9, male: 35.6, female: 38.2 }
+    1820 => { total: 16.7, male: 16.6, female: 16.8 },
+    1830 => { total: 17.2, male: 17.2, female: 17.3 },
+    1840 => { total: 17.8, male: 17.9, female: 17.8 },
+    1850 => { total: 18.9, male: 19.2, female: 18.6 },
+    1860 => { total: 19.4, male: 19.8, female: 19.1 },
+    1870 => { total: 20.2, male: 20.2, female: 20.1 },
+    1880 => { total: 20.9, male: 21.2, female: 20.7 },
+    1890 => { total: 22.0, male: 22.3, female: 21.6 },
+    1900 => { total: 22.9, male: 23.3, female: 22.4 },
+    1910 => { total: 24.1, male: 24.6, female: 23.5 },
+    1920 => { total: 25.3, male: 25.8, female: 24.7 },
+    1930 => { total: 26.5, male: 26.7, female: 25.2 },
+    1940 => { total: 29.0, male: 29.1, female: 29.0 },
+    1950 => { total: 30.2, male: 29.9, female: 30.5 },
+    1960 => { total: 29.6, male: 28.7, female: 30.4 },
+    1970 => { total: 28.1, male: 26.8, female: 29.8 },
+    1980 => { total: 30.0, male: 28.8, female: 31.2 },
+    1990 => { total: 32.9, male: 31.7, female: 34.1 },
+    2000 => { total: 35.3, male: 34.0, female: 36.5 }
   }.freeze
 
   # Gender distribution percentages (approximate, based on historical trends)
@@ -129,14 +129,14 @@ module CensusFetcher
   ACS_API_BASE = 'https://api.census.gov/data'
   # ACS 1-year data is available for most years 2010-2024, except 2020 (suspended due to COVID-19)
   ACS_AVAILABLE_YEARS = (2010..2024).to_a - [2020]
-  HISTORICAL_YEARS = (1990..2009).to_a
 
   def self.fetch_acs_data
     puts 'Fetching data from Census sources...'
     data_by_year = {}
 
-    # Add historical data (1990-2009)
-    HISTORICAL_YEARS.each do |year|
+    # Add historical data from decennial census (1820-2000)
+    historical_years = HistoricalData::HISTORICAL_MEDIAN_AGES.keys.sort
+    historical_years.each do |year|
       puts "  Adding historical year #{year}..."
       historical_data = HistoricalData.get_historical_data(year)
       data_by_year[year.to_s] = historical_data if historical_data
@@ -365,7 +365,7 @@ module CLI
       Usage: ruby average_american.rb [OPTIONS]
 
       Options:
-        --year=YYYY           Show average American for specific year (1990-2024, excl. 2020)
+        --year=YYYY           Show average American for specific year (1820-2024, excl. 2020)
         --gender=male|female  Show average American of specific gender
         --fetch               Fetch Census data (historical + ACS API)
         --help, -h            Show this help message

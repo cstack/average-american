@@ -1,4 +1,293 @@
 {
+  "1820": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1820,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 16.7,
+      "by_gender": {
+        "Male": 16.6,
+        "Female": 16.8
+      }
+    }
+  },
+  "1830": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1830,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 17.2,
+      "by_gender": {
+        "Male": 17.2,
+        "Female": 17.3
+      }
+    }
+  },
+  "1840": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1840,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 17.8,
+      "by_gender": {
+        "Male": 17.9,
+        "Female": 17.8
+      }
+    }
+  },
+  "1850": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1850,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 18.9,
+      "by_gender": {
+        "Male": 19.2,
+        "Female": 18.6
+      }
+    }
+  },
+  "1860": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1860,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 19.4,
+      "by_gender": {
+        "Male": 19.8,
+        "Female": 19.1
+      }
+    }
+  },
+  "1870": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1870,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 20.2,
+      "by_gender": {
+        "Male": 20.2,
+        "Female": 20.1
+      }
+    }
+  },
+  "1880": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1880,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 20.9,
+      "by_gender": {
+        "Male": 21.2,
+        "Female": 20.7
+      }
+    }
+  },
+  "1890": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1890,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 22.0,
+      "by_gender": {
+        "Male": 22.3,
+        "Female": 21.6
+      }
+    }
+  },
+  "1900": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1900,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 22.9,
+      "by_gender": {
+        "Male": 23.3,
+        "Female": 22.4
+      }
+    }
+  },
+  "1910": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1910,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 24.1,
+      "by_gender": {
+        "Male": 24.6,
+        "Female": 23.5
+      }
+    }
+  },
+  "1920": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1920,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 25.3,
+      "by_gender": {
+        "Male": 25.8,
+        "Female": 24.7
+      }
+    }
+  },
+  "1930": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1930,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 26.5,
+      "by_gender": {
+        "Male": 26.7,
+        "Female": 25.2
+      }
+    }
+  },
+  "1940": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1940,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 29.0,
+      "by_gender": {
+        "Male": 29.1,
+        "Female": 29.0
+      }
+    }
+  },
+  "1950": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1950,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 30.2,
+      "by_gender": {
+        "Male": 29.9,
+        "Female": 30.5
+      }
+    }
+  },
+  "1960": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1960,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 29.6,
+      "by_gender": {
+        "Male": 28.7,
+        "Female": 30.4
+      }
+    }
+  },
+  "1970": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1970,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 28.1,
+      "by_gender": {
+        "Male": 26.8,
+        "Female": 29.8
+      }
+    }
+  },
+  "1980": {
+    "gender": {
+      "source": "US Census Historical",
+      "year": 1980,
+      "distribution": {
+        "Male": 49.3,
+        "Female": 50.7
+      }
+    },
+    "age": {
+      "median": 30.0,
+      "by_gender": {
+        "Male": 28.8,
+        "Female": 31.2
+      }
+    }
+  },
   "1990": {
     "gender": {
       "source": "US Census Historical",
@@ -9,163 +298,10 @@
       }
     },
     "age": {
-      "median": 32.8,
-      "by_gender": {
-        "Male": 31.6,
-        "Female": 34.0
-      }
-    }
-  },
-  "1991": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1991,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 32.8,
-      "by_gender": {
-        "Male": 31.6,
-        "Female": 34.0
-      }
-    }
-  },
-  "1992": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1992,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
       "median": 32.9,
       "by_gender": {
-        "Male": 31.9,
-        "Female": 34.0
-      }
-    }
-  },
-  "1993": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1993,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 33.1,
-      "by_gender": {
-        "Male": 31.9,
-        "Female": 34.3
-      }
-    }
-  },
-  "1994": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1994,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 33.4,
-      "by_gender": {
-        "Male": 32.3,
-        "Female": 34.6
-      }
-    }
-  },
-  "1995": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1995,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 34.3,
-      "by_gender": {
-        "Male": 33.2,
-        "Female": 35.5
-      }
-    }
-  },
-  "1996": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1996,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 34.7,
-      "by_gender": {
-        "Male": 33.5,
-        "Female": 35.8
-      }
-    }
-  },
-  "1997": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1997,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 34.9,
-      "by_gender": {
-        "Male": 33.8,
-        "Female": 36.1
-      }
-    }
-  },
-  "1998": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1998,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 35.2,
-      "by_gender": {
-        "Male": 34.1,
-        "Female": 36.3
-      }
-    }
-  },
-  "1999": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 1999,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 35.5,
-      "by_gender": {
-        "Male": 34.3,
-        "Female": 36.6
+        "Male": 31.7,
+        "Female": 34.1
       }
     }
   },
@@ -183,159 +319,6 @@
       "by_gender": {
         "Male": 34.0,
         "Female": 36.5
-      }
-    }
-  },
-  "2001": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2001,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 35.6,
-      "by_gender": {
-        "Male": 34.3,
-        "Female": 36.9
-      }
-    }
-  },
-  "2002": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2002,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 35.7,
-      "by_gender": {
-        "Male": 34.4,
-        "Female": 37.0
-      }
-    }
-  },
-  "2003": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2003,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 35.9,
-      "by_gender": {
-        "Male": 34.6,
-        "Female": 37.1
-      }
-    }
-  },
-  "2004": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2004,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.0,
-      "by_gender": {
-        "Male": 34.7,
-        "Female": 37.3
-      }
-    }
-  },
-  "2005": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2005,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.2,
-      "by_gender": {
-        "Male": 34.9,
-        "Female": 37.5
-      }
-    }
-  },
-  "2006": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2006,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.4,
-      "by_gender": {
-        "Male": 35.1,
-        "Female": 37.7
-      }
-    }
-  },
-  "2007": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2007,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.6,
-      "by_gender": {
-        "Male": 35.3,
-        "Female": 37.9
-      }
-    }
-  },
-  "2008": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2008,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.8,
-      "by_gender": {
-        "Male": 35.5,
-        "Female": 38.1
-      }
-    }
-  },
-  "2009": {
-    "gender": {
-      "source": "US Census Historical",
-      "year": 2009,
-      "distribution": {
-        "Male": 49.3,
-        "Female": 50.7
-      }
-    },
-    "age": {
-      "median": 36.9,
-      "by_gender": {
-        "Male": 35.6,
-        "Female": 38.2
       }
     }
   },
